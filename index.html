@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculus in Food Security: BSF Biomass Optimization</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Chart.js CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- FontAwesome for professional icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- MathJax for rendering gorgeous scientific equations -->
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            svg: {
+                fontCache: 'global'
+            }
+        };
+    </script>
+    <script type="text/javascript" id="MathJax-script" async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+    </script>
+    <style>
+        .custom-gradient {
+            background: linear-gradient(135deg, #115e59 0%, #0f172a 100%);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900 font-sans min-h-screen flex flex-col justify-between">
+
+    <!-- Header & Hero Section -->
+    <header class="custom-gradient text-white py-10 px-6 md:px-12 shadow-lg relative overflow-hidden">
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-teal-500/20 via-transparent to-transparent"></div>
+        <div class="max-w-7xl mx-auto relative z-10">
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                <div>
+                    <span class="bg-teal-500/20 text-teal-300 border border-teal-500/30 text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider">
+                        <i class="fa-solid fa-seedling mr-1"></i> SFM: Food Security & Applied Calculus
+                    </span>
+                    <h1 class="text-3xl md:text-5xl font-black mt-3 tracking-tight">
+                        BSF Larval Growth & <span class="text-teal-400">Derivatives $f'(t)$</span>
+                    </h1>
+                    <p class="text-slate-300 mt-2 max-w-3xl text-sm md:text-base">
+                        Optimizing insect protein bioconversion rates to replace costly imported soybean meal in Malaysian animal feed formulations.
+                    </p>
+                </div>
+                <div class="bg-white/10 backdrop-blur-md rounded-xl p-4 border border-white/10 hidden lg:block text-right">
+                    <p class="text-xs text-slate-300">National Target</p>
+                    <p class="text-lg font-bold text-teal-300">Targeting 100% feed self-sufficiency</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Grid -->
+    <main class="max-w-7xl mx-auto px-4 md:px-8 py-8 w-full flex-grow grid grid-cols-1 lg:grid-cols-12 gap-8">
+        
+        <!-- Left Sidebar: The Bioscience Scenario & Formulas -->
+        <section class="lg:col-span-4 space-y-6">
+            
+            <!-- Bioscience Scenario -->
+            <div class="bg-white rounded-2xl p-6 shadow-md border border-slate-200">
+                <h2 class="text-lg font-bold text-teal-900 flex items-center gap-2 mb-3">
+                    <i class="fa-solid fa-bug text-teal-600"></i> The Food Security Problem
+                </h2>
+                <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                    Malaysia imports over <strong>70% of its animal feed ingredients</strong> (specifically corn and soy), leaving the country highly vulnerable to global supply chain disruptions and currency fluctuations. 
+                </p>
+                <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                    <strong>Black Soldier Fly Larvae (BSFL)</strong> feed on local organic waste, converting it into high-protein biomass. To make commercial bio-factories viable, agronomists must know the <em>exact day of maximum growth velocity</em>. Harvesting too early loses yield; harvesting too late (when they turn into prepupae and shed fat) reduces protein content.
+                </p>
+                <div class="bg-teal-50 border-l-4 border-teal-600 p-3 rounded-r-lg">
+                    <span class="text-xs text-teal-800 font-semibold block uppercase">Realistic Baseline Source:</span>
+                    <p class="text-xs text-slate-600 italic">
+                        "Bioconversion of Organic Waste via Hermetia illucens" — MARDI (Malaysian Agricultural Research and Development Institute) Technical Guidelines / Anim. Feed Sci. Technology.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Mathematical Modeling Card -->
+            <div class="bg-slate-900 text-white rounded-2xl p-6 shadow-md border border-slate-800">
+                <h3 class="text-md font-bold text-teal-400 flex items-center gap-2 mb-4">
+                    <i class="fa-solid fa-square-root-variable"></i> Biological Calculus Models
+                </h3>
+                <p class="text-xs text-slate-300 mb-4">
+                    Let $t$ represent the growth cycle in **Days** ($2 \le t \le 18$), and $f(t)$ represent the **average larval wet weight in milligrams (mg)**.
+                </p>
+                
+                <div class="space-y-4">
+                    <div class="bg-slate-800 p-4 rounded-xl border border-slate-700">
+                        <span class="text-[10px] text-teal-400 font-bold uppercase tracking-wider block">Biomass Accumulation Curve $f(t)$</span>
+                        <div class="text-sm md:text-base font-mono mt-1 text-center overflow-x-auto py-2">
+                            $$f(t) = -0.05t^3 + 1.2t^2 - 2t + 5$$
+                        </div>
+                    </div>
+                    
+                    <div class="bg-slate-800 p-4 rounded-xl border border-slate-700">
+                        <span class="text-[10px] text-amber-400 font-bold uppercase tracking-wider block">Derivative $f'(t)$ (Growth Rate)</span>
+                        <div class="text-sm md:text-base font-mono mt-1 text-center overflow-x-auto py-2">
+                            $$f'(t) = -0.15t^2 + 2.4t - 2$$
+                        </div>
+                        <span class="text-[10px] text-slate-400 mt-1 block text-right">Unit: milligrams / day</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Right Side: Interactive Chart & Live Calculator -->
+        <section class="lg:col-span-8 flex flex-col gap-6">
+            
+            <!-- Graph Visualization Card -->
+            <div class="bg-white rounded-2xl p-6 shadow-md border border-slate-200 flex-grow flex flex-col justify-between">
+                <div>
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
+                        <div>
+                            <h2 class="text-lg font-bold text-slate-800">Larval Biomass Velocity Analytics</h2>
+                            <p class="text-slate-500 text-xs mt-0.5">
+                                Click directly on any graph point to run the instantaneous rate of change derivative calculations.
+                            </p>
+                        </div>
+                        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-amber-50 text-amber-800 border border-amber-200">
+                            <span class="w-2 h-2 rounded-full bg-amber-500 animate-pulse"></span> Dynamic f'(t) Plotter
+                        </span>
+                    </div>
+
+                    <!-- Chart Frame -->
+                    <div class="relative w-full h-[320px] md:h-[400px]">
+                        <canvas id="growthChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Interactive Explainer Output Panel -->
+            <div id="outputContainer" class="bg-slate-100 border border-dashed border-slate-300 rounded-2xl p-6 min-h-[140px] flex items-center justify-center transition-all duration-300">
+                
+                <!-- Initial State Placeholder -->
+                <div id="initialState" class="text-center py-4">
+                    <p class="text-2xl animate-bounce">👆</p>
+                    <p class="text-sm text-slate-500 font-medium mt-2">
+                        Click on any node on the graph curves to compute the derivative $f'(t)$.
+                    </p>
+                </div>
+
+                <!-- Live Computational Output (Hidden initially) -->
+                <div id="activeState" class="hidden w-full grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+                    
+                    <!-- Left: Numerical Outputs -->
+                    <div class="md:col-span-5 grid grid-cols-3 gap-3">
+                        <div class="col-span-1 bg-white p-3 rounded-xl border border-slate-200 text-center shadow-xs">
+                            <span class="text-[9px] text-slate-400 font-bold block uppercase tracking-wider">Day ($t$)</span>
+                            <span id="outputDay" class="text-xl md:text-2xl font-black text-slate-800">-</span>
+                        </div>
+                        <div class="col-span-1 bg-white p-3 rounded-xl border border-slate-200 text-center shadow-xs">
+                            <span class="text-[9px] text-teal-600 font-bold block uppercase tracking-wider">Weight $f(t)$</span>
+                            <span id="outputWeight" class="text-xl md:text-2xl font-black text-teal-700">-</span>
+                            <span class="text-[9px] text-slate-400 block">mg</span>
+                        </div>
+                        <div class="col-span-1 bg-amber-50 p-3 rounded-xl border border-amber-100 text-center shadow-xs">
+                            <span class="text-[9px] text-amber-700 font-bold block uppercase tracking-wider">Rate $f'(t)$</span>
+                            <span id="outputRate" class="text-xl md:text-2xl font-black text-amber-600">-</span>
+                            <span class="text-[9px] text-amber-700 block">mg/day</span>
+                        </div>
+                    </div>
+
+                    <!-- Right: Layman Explanation Text -->
+                    <div class="md:col-span-7 bg-teal-950 text-white p-4 rounded-xl border border-teal-800 shadow-sm relative">
+                        <div class="absolute -top-3 left-4 bg-teal-500 text-slate-900 text-[10px] font-black uppercase px-2 py-0.5 rounded-md tracking-wider shadow-sm">
+                            Agronomist Diagnostics
+                        </div>
+                        <p id="laymanExplanation" class="text-xs md:text-sm text-teal-100 leading-relaxed mt-2">
+                            --
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+    </main>
+
+    <!-- Sticky footer -->
+    <footer class="bg-slate-900 border-t border-slate-800 text-slate-500 py-6 text-center text-xs">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-4">
+            <p>© 2026 Sustainable Food Security Module (SFM). Developed for bioscience applications in agricultural calculus.</p>
+            <div class="flex gap-4">
+                <a href="https://www.mardi.gov.my" target="_blank" class="hover:text-teal-400 transition-colors"><i class="fa-solid fa-globe mr-1"></i> MARDI Official Portal</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- App Logic Scripts -->
+    <script>
+        // 1. Math formulas computed programmatically
+        // f(t) = -0.05*t^3 + 1.2*t^2 - 2*t + 5
+        function weightFunction(t) {
+            return (-0.05 * Math.pow(t, 3)) + (1.2 * Math.pow(t, 2)) - (2 * t) + 5;
+        }
+
+        // f'(t) = -0.15*t^2 + 2.4*t - 2
+        function derivativeFunction(t) {
+            return (-0.15 * Math.pow(t, 2)) + (2.4 * t) - 2;
+        }
+
+        // Generate data ranges (Days 2 to 18)
+        const daysArray = [];
+        const weightDataPoints = [];
+        const derivativeDataPoints = [];
+
+        for (let t = 2; t <= 18; t++) {
+            daysArray.push(t);
+            weightDataPoints.push(parseFloat(weightFunction(t).toFixed(2)));
+            derivativeDataPoints.push(parseFloat(derivativeFunction(t).toFixed(2)));
+        }
+
+        // 2. Layman/Agronomy insights generator
+        function getLaymanInterpretation(day, weight, rate) {
+            if (day >= 2 && day <= 5) {
+                return `**Lag Phase (Initial Growth):** On **Day ${day}**, larvae are establishing feeding pathways. At a current rate of **+${rate} mg/day**, biomass is growing, but velocity is low. Harvesting now is economically non-viable because total yield is only **${weight} mg** per larvae.`;
+            }
+            if (day > 5 && day <= 9) {
+                return `**Exponential Acceleration Phase:** On **Day ${day}**, biomass growth velocity has exploded to **+${rate} mg/day**! The derivative is climbing rapidly, meaning the food waste bioconversion efficiency is at its highest. This represents the steepest segment of the cumulative weight curve $f(t)$.`;
+            }
+            if (day > 9 && day <= 11) {
+                return `**The Critical Inflection Point (Max Velocity):** On **Day ${day}**, the growth rate peaks around **+7.6 mg/day**. This is where the derivative curve $f'(t)$ hits its maximum peak. The slope of $f(t)$ is at its steepest point. The larvae are converting organic food waste into protein with the highest absolute efficiency.`;
+            }
+            if (day > 11 && day <= 15) {
+                return `**Deceleration Phase:** On **Day ${day}**, the larvae are still gaining weight (total weight is high at **${weight} mg**), but the derivative has dropped to **+${rate} mg/day**. Biologically, metabolism is shifting towards preparing for pupation. You are gaining less yield per unit of feed input compared to earlier.`;
+            }
+            if (day > 15) {
+                return `**Pre-Pupation Decline (Harvest Overdue):** On **Day ${day}**, the growth rate $f'(t)$ has turned negative (**${rate} mg/day**)! The larvae are clearing their gut tracts and shedding moisture to transform into prepupae. You are losing harvestable weight. This proves mathematically why harvesting *must* occur around Day 14-15 to maximize protein output.`;
+            }
+            return `Undefined stage.`;
+        }
+
+        // 3. Setup Chart.js configuration
+        const canvasCtx = document.getElementById('growthChart').getContext('2d');
+        const customChart = new Chart(canvasCtx, {
+            type: 'line',
+            data: {
+                labels: daysArray,
+                datasets: [
+                    {
+                        label: 'Larval Wet Weight (mg)',
+                        data: weightDataPoints,
+                        borderColor: '#0f766e', // Teal 700
+                        backgroundColor: 'rgba(15, 118, 110, 0.08)',
+                        borderWidth: 3,
+                        pointBackgroundColor: '#0f766e',
+                        pointHoverRadius: 9,
+                        pointRadius: 6,
+                        fill: true,
+                        yAxisID: 'yLeft',
+                    },
+                    {
+                        label: 'Growth Rate (mg/day)',
+                        data: derivativeDataPoints,
+                        borderColor: '#d97706', // Amber 600
+                        borderDash: [5, 5],
+                        backgroundColor: 'transparent',
+                        borderWidth: 2,
+                        pointBackgroundColor: '#d97706',
+                        pointHoverRadius: 9,
+                        pointRadius: 5,
+                        yAxisID: 'yRight',
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                animation: {
+                    duration: 1800,
+                    easing: 'easeInOutCubic'
+                },
+                hover: {
+                    mode: 'index',
+                    intersect: false
+                },
+                plugins: {
+                    legend: {
+                        position: 'top',
+                        labels: {
+                            font: { family: 'ui-sans-serif', size: 12, weight: 'bold' },
+                            color: '#1e293b'
+                        }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: function(context) {
+                                let label = context.dataset.label || '';
+                                if (label) {
+                                    label += ': ';
+                                }
+                                if (context.parsed.y !== null) {
+                                    label += context.parsed.y + (context.datasetIndex === 0 ? ' mg' : ' mg/day');
+                                }
+                                return label;
+                            }
+                        }
+                    }
+                },
+                scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Feeding Cycle (Days of Growth)',
+                            color: '#334155',
+                            font: { weight: 'bold', size: 12 }
+                        },
+                        grid: { color: '#e2e8f0' }
+                    },
+                    yLeft: {
+                        type: 'linear',
+                        display: true,
+                        position: 'left',
+                        title: {
+                            display: true,
+                            text: 'Weight f(t) [mg]',
+                            color: '#0f766e',
+                            font: { weight: 'bold', size: 12 }
+                        },
+                        min: 0,
+                        max: 90,
+                        grid: { color: '#f1f5f9' }
+                    },
+                    yRight: {
+                        type: 'linear',
+                        display: true,
+                        position: 'right',
+                        title: {
+                            display: true,
+                            text: "Growth Velocity f'(t) [mg/day]",
+                            color: '#d97706',
+                            font: { weight: 'bold', size: 12 }
+                        },
+                        min: -3,
+                        max: 9,
+                        grid: { drawOnChartArea: false }
+                    }
+                },
+                onClick: (event, clickedElements) => {
+                    if (clickedElements.length > 0) {
+                        const index = clickedElements[0].index;
+                        const day = daysArray[index];
+                        const weight = weightDataPoints[index];
+                        const rate = derivativeDataPoints[index];
+                        const explanation = getLaymanInterpretation(day, weight, rate);
+
+                        // Reveal computed values and hide placeholder
+                        document.getElementById('initialState').classList.add('hidden');
+                        document.getElementById('activeState').classList.remove('hidden');
+                        document.getElementById('outputContainer').className = "bg-white border-2 border-teal-500 rounded-2xl p-6 min-h-[140px] flex items-center transition-all duration-300 shadow-md";
+
+                        // Set values
+                        document.getElementById('outputDay').innerText = day;
+                        document.getElementById('outputWeight').innerText = weight;
+                        document.getElementById('outputRate').innerText = (rate > 0 ? '+' : '') + rate;
+                        
+                        // Parse markdown-style bold tags if simple string contains them
+                        document.getElementById('laymanExplanation').innerHTML = explanation.replace(/\*\*(.*?)\*\*/g, '<strong class="text-teal-300">$1</strong>');
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
